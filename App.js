@@ -1,20 +1,16 @@
+import React, { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
-
+import { View } from 'react-native';
+import CountScreen from './src/screens/CounterScreen';
+import CounterCustom from "./src/component/CounterCustom";
 export default function App() {
-  return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+  const[customState,setCustomState]=useState(1);
+return (
+    <View style={{flex:1}}>
+     <CountScreen customStatevalue={customState}/>
+     <CounterCustom setCustomStatevalue={setCustomState}/>
+    <StatusBar style="auto" />
     </View>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
